@@ -1,52 +1,23 @@
 #include "monty.h"
-
 /**
- * create_node_stack - create a node stack.
- * @stack: A pointer to top and bottom stack.
- * Return: EXIT SUCCESS
+ * _stack - change list mode to stack (default)
+ * @head: head of stack
+ * @line_number: line number of input file
  */
-int create_node_stack(stack_t **stack)
+void _stack(stack_t **head, unsigned int line_number)
 {
-	stack_t *p;
-
-	p = malloc(sizeof(stack_t));
-	if (p == NULL)
-		stderr_malloc();
-	p->n = STACK;
-	p->prev = NULL;
-	p->next = NULL;
-
-	*stack = p;
-
-	return (EXIT_SUCCESS);
+	(void)line_number;
+	(void)head;
+	list_mode = 0;
 }
 /**
- * free_node_stack - Frees a stack_t stack.
- * @stack: A pointer to top and bottom stack.
+ * _queue - change list mode to queue
+ * @head: head of stack
+ * @line_number: line number of input file
  */
-void free_node_stack(stack_t **stack)
+void _queue(stack_t **head, unsigned int line_number)
 {
-	stack_t *temp_node = *stack;
-
-	while (*stack)
-	{
-		temp_node = (*stack)->next;
-		free(*stack);
-		*stack = temp_node;
-	}
-}
-/**
- * check_opcode - checks if STACK or QUEUE.
- * @stack: A pointer to top and bottom stack.
- * Return: The value of Stack or Queue
- */
-int check_opcode(stack_t *stack)
-{
-	int ret_val = 2;
-
-	if (stack->n == STACK)
-		return (STACK);
-	else if (stack->n == QUEUE)
-		return (QUEUE);
-	return (ret_val);
+	(void)line_number;
+	(void)head;
+	list_mode = 1;
 }
