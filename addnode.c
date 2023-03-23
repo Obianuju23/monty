@@ -1,4 +1,4 @@
-es (22 sloc)  429 Bytes
+es(22 sloc)  429 Bytes
 
 #include "monty.h"
 /**
